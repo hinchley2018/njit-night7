@@ -1,5 +1,9 @@
 console.log("Script loaded")
 
+//we can navigate the DOM tree with 
+//let courseHeader = document.body.children[0]
+//but this is fragile if someone changes the order of elements or changes the element to a different tag
+
 //get the h2
 //tag
 //#id in css

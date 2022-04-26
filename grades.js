@@ -133,7 +133,25 @@ for(let index = 0; index < assignments.length; index ++){
     //create list element by giving a li tag as input
     let assignmentLi = document.createElement("li")
     let avgGrade = assignments[index].averageGrade
-    assignmentLi.textContent = assignments[index].name + ` Avg Grade: ${avgGrade}`
+
+    //create a course info h3
+    let assignmentInfo = document.createElement("h3")
+    assignmentInfo.textContent = assignments[index].name + ` Avg Grade: ${avgGrade}`
+    assignmentLi.append(assignmentInfo)
+
+    //create a button
+    let deleteAssignmentButton = document.createElement("button")
+    deleteAssignmentButton.textContent = "Delete Assignment"
+
+    //register a click listener to delete the assignment li if clicked
+    deleteAssignmentButton.addEventListener('click', function (event) {
+        console.log("my event", event)
+
+        //who was this event's target aka who was clicked / interacted with
+        removeAssignmentByReference(assignmentLi)
+    })
+
+    assignmentLi.append(deleteAssignmentButton)
 
     //set id to have the activity id
     assignmentLi.setAttribute("id", assignments[index].activityId)
@@ -181,10 +199,9 @@ let lastAssignemnt = document.querySelector("ul").children[1]
 
 
 //when funciton is called it deletes the element we passed by index
-function removeAssignmentByIndex(index){
-    let assignmentToRemove = document.querySelector("ul").children[index]
-    console.log("assignment we removed", lastAssignemnt)
+function removeAssignmentByReference(assignmentToRemove){
     assignmentToRemove.remove()
+    window.alert("Removed assignment from gradebook")
 }
 // can do the same thing
 //removeAssignmentByIndex(1)

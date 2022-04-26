@@ -1,0 +1,9 @@
+.passing {
+    background-color: green;
+    color: white;
+}
+
+.failing {
+    background-color: red;
+    color: black;
+}
